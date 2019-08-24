@@ -94,20 +94,8 @@ def main():
         for x in user.split():
             username_list.append(x)
 
-    #used only if wanting to enter by url instead of username
-    '''
-    with open('users.txt') as f:
-        content = f.readlines()
-    content = [x.strip() for x in self.content]
-    for url in self.content:
-        getfollowings(url)
-    '''
     for x in username_list:
         obj.profile_page_recent_posts_time(x)
 
 if __name__ == '__main__':
     main()
-
-
-
-
