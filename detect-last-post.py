@@ -74,13 +74,19 @@ class InstagramScraper:
                     results.append(node)
             time_difference = datetime.now() - datetime.fromtimestamp(int(results[0]['taken_at_timestamp']))
             print('{:<25s} posted {:>12s} ago'.format(profile, str(time_difference)))
-        
+    
         except:
             print("Trouble finding info for " + profile_url)
 
 def main():
     obj = InstagramScraper()
-    username_list = []
+
+    # Reads file instead of copy and paste method below
+    username_list = [line.rstrip() for line in open('usernames.txt')]
+
+    print(username_list)
+
+    '''
     print("Enter/Paste elements, press[Enter], then press Ctrl-D to save it and run program.")
 
     while(True):
@@ -93,7 +99,7 @@ def main():
         
         for x in user.split():
             username_list.append(x)
-
+    '''
     for x in username_list:
         obj.profile_page_recent_posts_time(x)
 
